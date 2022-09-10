@@ -13,7 +13,7 @@ class MainController {
             // print_r('<br>');
             $obj = employee::import_csv($elem);
         }
-        require_once'./view/main_view.php';
+    require_once'./view/main_view.php';
     }
     static function info() {
         require'./view/info_view.php';
