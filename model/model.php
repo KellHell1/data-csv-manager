@@ -1,7 +1,5 @@
 <?php
 
-//require_once'database.php';
-
 class employee {
   
   static function import_csv($elem) {
@@ -15,10 +13,15 @@ class employee {
             WHERE `UID` = $elem[uid]");
     }
   }
-  
+
   static function delete_records() {
     $mysql = new mysqli('localhost', 'root', '', 'user_data');
     $mysql->query("TRUNCATE TABLE employee;");
+  }
+
+  static function get_all_records() {
+    $mysql = new mysqli('localhost', 'root', '', 'user_data');
+    return $mysql->query("SELECT * FROM employee;");
   }
 
  }

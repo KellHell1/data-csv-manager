@@ -30,7 +30,14 @@
                     value="Delete all records">
                 </form>
                 <div class="col-md-4">
-                    <button type="submit" id="view_result" name="View_result" class="btn btn-info" >View all records</button>
+                </form>
+                <form action="./index.php/allrecords">
+                    <input type="hidden"
+                    name="action"
+                    value="view">
+                    <input type="submit" 
+                    value="View all records">
+                </form>
                 </div>
             </div>
             <?php

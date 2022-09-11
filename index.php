@@ -2,6 +2,7 @@
 
 require_once __DIR__.'./model/database.php';
 require_once __DIR__.'./controller/main_controller.php';
+require_once __DIR__.'./controller/info_controller.php';
 
 $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : '/';
 //print_r($url);
@@ -30,9 +31,13 @@ elseif ($url[0] == '/' && $_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     fclose($file);
     } 
-     
+
 }
 elseif ($_SERVER['PATH_INFO'] == '/delete'){
     MainController::delete_records();
+}
+
+elseif ($_SERVER['PATH_INFO'] == '/allrecords'){
+    InfoController::get_records();
 }
 ?>
