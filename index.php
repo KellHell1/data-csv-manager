@@ -40,4 +40,12 @@ elseif ($_SERVER['PATH_INFO'] == '/delete'){
 elseif ($_SERVER['PATH_INFO'] == '/allrecords'){
     InfoController::get_records();
 }
+
+elseif ($_SERVER['PATH_INFO'] == '/downloadrecords'){
+    $downloadcontroller = new InfoController;
+    $downloadcontroller->download_records();
+    header('Content-Type: text/csv; charset=utf-8');  
+    header('Content-Disposition: attachment; filename=data.csv');
+}
+
 ?>

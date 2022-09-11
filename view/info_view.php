@@ -35,3 +35,14 @@ else {
 <button>
 <a href="http://localhost/test/index.php">Go back</a>
 </button>
+
+<div>
+            <form action="downloadrecords" method="post" name="download"   
+                      enctype="multipart/form-data">
+                  <div class="form-group">
+                            <div class="col-md-4 col-md-offset-4">
+                                <input type="submit" name="Download" class="btn btn-success" value="Download csv"/>
+                            </div>
+                   </div>                    
+            </form>           
+ </div>
