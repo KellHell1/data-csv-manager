@@ -17,18 +17,10 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="singlebutton">Import data</label>
                             <div class="col-md-4">
-                                <button type="submit" id="submit" name="Import" class="btn btn-primary button-loading" >Import</button>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
-                <form action="./index.php/delete">
-                    <input type="hidden"
-                    name="action"
-                    value="delete">
-                    <input type="submit" 
-                    value="Delete all records">
-                </form>
+                                <button type="submit" id="submit" name="Import" class="btn btn-primary button-loading" >Import</button><br>
+                                <br>
+                                </form>
+            
                 <div class="col-md-4">
                 </form>
                 <form action="./index.php/allrecords">
@@ -37,7 +29,20 @@
                     value="view">
                     <input type="submit" 
                     value="View all records">
+
+                    <form action="./index.php/delete">
+                    <input type="hidden"
+                    name="action"
+                    value="delete">
+                    <input type="submit" 
+                    value="Delete all records">
                 </form>
+                </form>
+
+                            </div>
+                        </div>
+                    </fieldset>
+                
                 </div>
             </div>
             <?php
