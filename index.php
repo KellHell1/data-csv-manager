@@ -1,11 +1,9 @@
 <?php
 
-require_once __DIR__.'./model/database.php';
 require_once __DIR__.'./controller/main_controller.php';
 require_once __DIR__.'./controller/info_controller.php';
 
 $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : '/';
-//print_r($url);
 
 
 if ($url[0] == '/' && $_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -24,7 +22,7 @@ elseif ($url[0] == '/' && $_SERVER['REQUEST_METHOD'] == 'POST'){
                     MainController::import_main($lst);
                 }
                 else{
-                    print_r('not valid document');
+                    print_r('Your CSV is not valid');
                     break 2;
             }
         }
