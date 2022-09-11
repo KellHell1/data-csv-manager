@@ -22,6 +22,16 @@
                         </div>
                     </fieldset>
                 </form>
+                <form action="./index.php/delete">
+                    <input type="hidden"
+                    name="action"
+                    value="delete">
+                    <input type="submit" 
+                    value="Delete all records">
+                </form>
+                <div class="col-md-4">
+                    <button type="submit" id="view_result" name="View_result" class="btn btn-info" >View all records</button>
+                </div>
             </div>
             <?php
             ?>

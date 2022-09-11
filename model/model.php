@@ -3,6 +3,7 @@
 //require_once'database.php';
 
 class employee {
+  
   static function import_csv($elem) {
     $mysql = new mysqli('localhost', 'root', '', 'user_data');
     try {
@@ -13,6 +14,11 @@ class employee {
             $mysql->query("UPDATE employee SET `UID`=$elem[uid],`Name`='$elem[name]',`Age`='$elem[age]',`Email`='$elem[email]',`Phone`=$elem[phone],`Gender`='$elem[gender]' 
             WHERE `UID` = $elem[uid]");
     }
-
   }
+  
+  static function delete_records() {
+    $mysql = new mysqli('localhost', 'root', '', 'user_data');
+    $mysql->query("TRUNCATE TABLE employee;");
+  }
+
  }

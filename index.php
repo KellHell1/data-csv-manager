@@ -4,14 +4,10 @@ require_once __DIR__.'./model/database.php';
 require_once __DIR__.'./controller/main_controller.php';
 
 $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : '/';
+//print_r($url);
 
-// ConnectionDB::connection();
 
 if ($url[0] == '/' && $_SERVER['REQUEST_METHOD'] == 'GET') {
-
-    // require_once __DIR__.'./controller/main_controller.php';
-    // require_once __DIR__.'./view/main_view.php';
-
     MainController::get_main();
     }
 
@@ -33,7 +29,10 @@ elseif ($url[0] == '/' && $_SERVER['REQUEST_METHOD'] == 'POST'){
         }
         }
     fclose($file);
-    //MainController::get_main();
-    }
+    } 
+     
+}
+elseif ($_SERVER['PATH_INFO'] == '/delete'){
+    MainController::delete_records();
 }
 ?>
