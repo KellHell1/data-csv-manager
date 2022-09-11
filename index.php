@@ -18,16 +18,22 @@ if ($url[0] == '/' && $_SERVER['REQUEST_METHOD'] == 'GET') {
 elseif ($url[0] == '/' && $_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $filename = $_FILES["file"]["tmp_name"];
-    
-    $file = fopen($filename, "r");
-    while (fgetcsv($file, 1000, ",") !== FALSE) {
-        for ($i = 0; $row = fgetcsv($file); ++$i) {
-            //print_r("$row[0].'<br>'.$row[1].'<br>'.$row[2].'<br>'.$row[3].'<br>'.$row[4].'<br>'.$row[5].'<br>'");
-            $lst = [$i => ['uid' => $row[0],'name' => $row[1],'age' => $row[2],'email' => $row[3],'phone' => $row[4],'gender' => $row[5]]];
-            MainController::import_main($lst);
+    if($_FILES["file"]["size"] <= 5242880) {
+        $file = fopen($filename, "r");
+        while (fgetcsv($file, 1000, ",") !== FALSE) {
+            for ($i = 0; $row = fgetcsv($file); ++$i) {
+                if (count($row) == 6) {
+                    $lst = [$i => ['uid' => $row[0],'name' => $row[1],'age' => $row[2],'email' => $row[3],'phone' => $row[4],'gender' => $row[5]]];
+                    MainController::import_main($lst);
+                }
+                else{
+                    print_r('not valid document');
+                    break 2;
+            }
         }
         }
     fclose($file);
     //MainController::get_main();
+    }
 }
 ?>
